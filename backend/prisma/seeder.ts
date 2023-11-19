@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../src/client'
 const prisma = new PrismaClient()
 
 async function main()
@@ -12,6 +12,10 @@ async function main()
         {
             id: 2,
             name: 'Usuário'
+        },
+        {
+            id: 3,
+            name: 'Gestor'
         }
     ];
     for (const row of user_types)
@@ -34,6 +38,7 @@ async function main()
             email: 'adm@admin.com',
             password: '123456',
             userTypeId: 1,
+            name: 'Administrador',
         },
     });
 }

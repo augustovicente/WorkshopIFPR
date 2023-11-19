@@ -21,12 +21,13 @@ class MainController
     {
         try
         {
-            const { email, password, user_type_id } = req.body;
+            const { email, password, user_type_id, name } = req.body;
             const user = await prisma.user.create({
                 data: {
                     email,
                     password,
                     userTypeId: +user_type_id,
+                    name,
                 }
             });
             return res.status(StatusCodes.CREATED).json(user);

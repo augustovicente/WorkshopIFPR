@@ -36,9 +36,10 @@ export const Main = () => {
         // recebendo os dados do formulário
         const dados = {
             email: event.target[0].value,
-            password: event.target[1].value,
-            password_confirmation: event.target[2].value,
-            user_type_id: event.target[3].value,
+            name: event.target[1].value,
+            password: event.target[2].value,
+            password_confirmation: event.target[3].value,
+            user_type_id: event.target[4].value,
         };
         // check se as senhas são iguais
         if(dados.password !== dados.password_confirmation) {
@@ -60,6 +61,7 @@ export const Main = () => {
                 <h1>Cadastro de Usuários</h1>
                 <form onSubmit={onSubmit}>
                     <input type="text" placeholder="E-mail" />
+                    <input type="text" placeholder="Nome" />
                     <input type="password" placeholder="Senha" />
                     <input type="password" placeholder="Confirmação de Senha" />
                     <select>
@@ -78,6 +80,7 @@ export const Main = () => {
                         <tr>
                             <th>E-mail</th>
                             <th>Tipo</th>
+                            <th>Nome</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -85,6 +88,7 @@ export const Main = () => {
                             <tr key={user.id}>
                                 <td>{user.email}</td>
                                 <td>{user.userType?.name}</td>
+                                <td>{user.name}</td>
                             </tr>
                         ))}
                     </tbody>
